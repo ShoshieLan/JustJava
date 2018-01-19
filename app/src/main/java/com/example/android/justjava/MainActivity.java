@@ -10,7 +10,6 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,9 +17,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view) {
-        int numberOfCoffees = 2;
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees * 5);
+        int quantity = 2;
+        display(quantity);
+        displayPrice(quantity * 5);
+    }
+
+
+    public void increment(View view) {
+        int quantity = 3;
+        displayQuantity(quantity);
+    }
+
+    public void decrement(View view) {
+        int quantity = 1;
+        displayQuantity(quantity);
     }
 
     private void display(int number) {
@@ -31,5 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    private void displayQuantity(int number) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        quantityTextView.setText("" + number);
     }
 }
